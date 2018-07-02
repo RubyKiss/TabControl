@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			.tabcontrol{
+				width: 800px;
+				height: 600px;
+				position: relative;
+				border-radius: 10px;
+				border:10px solid #ddd;
+			}
+			.tabcontrol .menu
+			{
+				position: absolute;
+				top:0;left:0;right:0;height: 35px;
+			}
+			.tabcontrol .menu .tab{
+				cursor:pointer;
+				padding:7px 10px;
+				background-color: orange;
+				display: inline-block;
+			}
+			.tabcontrol .menu .action{
+				color: red;
+			}
+			.tabcontrol .menu .tab::selection{
+				background-color:  transparent;
+				color: inherit;
+			}
+			.tabcontrol .menu .tab i::selection{
+				background-color: transparent;
+				color: inherit;
+			}
+			.tabcontrol .cont{
+				position: absolute;
+				top:35px;
+				bottom:0;
+				left:0;
+				right:0;
+				background-color:  aquamarine;
+			}
+			.tabcontrol .cont >.panel{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="ct1" class="tabcontrol">
+			<div class="menu">
+				<div class="tab"><span>新标签</span><i>X</i></div>
+				<div class="tab"><span>新标签2</span><i>X</i></div>
+			</div>
+			<div class="cont">
+				<div class="panel">abc</div>
+				<div class="panel">efg</div>
+			</div>
+		</div>
+		<br />
+		<div id="ct2" class="tabcontrol">
+			<div class="menu">
+				<div class="tab"><span>新标签1</span><i class="close">X</i></div>
+				<div class="tab"><span>新标签2</span><i class="close">X</i></div>
+				<div class="tab"><span>新标签3</span><i class="close">X</i></div>
+				<div class="tab"><span>新标签11</span><i class="close">X</i></div>
+				<div class="tab"><span>新标签22</span><i class="close">X</i></div>
+				<div class="tab"><span>新标签33</span><i class="close">X</i></div>
+			</div>
+			<div class="cont">
+				<div class="panel">abc</div>
+				<div class="panel">efg</div>
+				<div class="panel">hij</div>
+				<div class="panel">abc1</div>
+				<div class="panel">efg1</div>
+				<div class="panel">hij1</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+		<script type="text/javascript" src="tabcontrol.js" ></script>
+		<script>
+			onload=function(){
+				
+				new tabcontrol("ct1");
+				var tab=new tabcontrol("ct2");
+				var obj=tab.addTab({
+					attr:{
+						id:"abc"
+					}
+				});
+				console.log(obj);
+			}
+		</script>
+	</body>
+</html>
